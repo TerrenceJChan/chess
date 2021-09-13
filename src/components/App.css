@@ -17,11 +17,17 @@
 }
 
 .chessboard_square {
-  background-color: seagreen;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
   border: solid 1px green;
+}
+
+.chessboard_square___white {
+  background-color: white;
+}
+
+.chessboard_square___black {
+  background-color: darkgrey;
 }
