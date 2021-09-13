@@ -91,8 +91,10 @@ function App() {
     }
 
     for (let i = 0; i < 64; i++) {
-      code = code + `<div id="${squareId(i)}" className="${["chessboard_square", squareColor(i)].join(" ")}">Item</div>`;
+      code = code + `<div id="${squareId(i)}" className="${["chessboard_square", squareColor(i)].join(" ")}"></div>`;
     }
+
+    
 
     return code;
   }
