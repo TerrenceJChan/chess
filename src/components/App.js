@@ -5,16 +5,35 @@ import parse from 'html-react-parser';
 function App() {
 
   const init = () => {
-    const CHAR_INT = 104;
+    const CHAR_INT = 97;
     let code = "";
 
-    const squareId = (num, i) => {
-      return String.fromCharCode(CHAR_INT - num) + ((i % 8) + 1);
+    const squareId = (i) => {
+      const rankLetter = (i) => {
+        if (i < 8) {
+          return "8";
+        } else if (i < 16) {
+          return "7";
+        } else if (i < 24) {
+          return "6";
+        } else if (i < 32) {
+          return "5";
+        } else if (i < 40) {
+          return "4";
+        } else if (i < 48) {
+          return "3";
+        } else if (i < 56) {
+          return "2";
+        } else if (i < 64) {
+          return "1";
+        }
+      }
+      return String.fromCharCode(CHAR_INT + (i % 8)) + rankLetter(i);
     }
 
     const squareColor = (i) => {
       const isEven = (i) => {
-        if (i % 2 == 0) {
+        if (i % 2 === 0) {
           return true
         } else {
           return false
@@ -72,8 +91,7 @@ function App() {
     }
 
     for (let i = 0; i < 64; i++) {
-      let counter = Math.floor(i / 8);
-      code = code + `<div id="${squareId(counter, i)}" className="${["chessboard_square", squareColor(i)].join(" ")}">Item</div>`;
+      code = code + `<div id="${squareId(i)}" className="${["chessboard_square", squareColor(i)].join(" ")}">Item</div>`;
     }
 
     return code;
